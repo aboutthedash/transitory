@@ -4,6 +4,6 @@
 </head>
 <body>
 	<p>This is the first file.</p>
-	<p>And I am testing.</p>Í
+	<p>And I am testing.</p>
 </body>
 </html>
