@@ -1,30 +1,5 @@
 // Strip out .php extensions
-RewriteEngine On
+# RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
-
-//Rewrite to www
-Options +FollowSymLinks
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^google.com[nc]
-RewriteRule ^(.*)$ http://www.google.com/$1 [r=301,nc]
-
-//301 Redirect Old File
-Redirect 301 www.google.com/about.php www.google.com/about
-
-//301 Redirect Entire Directory
-RedirectMatch 301 /about(.*) /aboutus/$1
-
-//Caching schema
-<FilesMatch "\.(jpg|png|css|js)$">
-Header set Cache-Control "proxy-revalidate, max-age=3600"
-</FilesMatch>
-
-//Prevent viewing of .htaccess file
-<Files .htaccess>
-order allow,deny
-deny from all
-</Files>
-
-//Prevent directory listings
-Options All -Indexes
